@@ -1,7 +1,25 @@
 # SP999 全自動建構 — 組合技能打包
 
-這個 ZIP 是 `sp999`（全自動建構）以及它直接組合/依賴的所有技能的完整快照，連同這次新增 Codex 品質複核
-（步驟 1.5）的查證與分析文件。
+`sp999`（Claude Code 全自動建構迴圈）以及它直接組合/依賴的所有技能，連同這次新增 Codex 品質複核
+（步驟 1.5）的查證與分析文件。公開給公司同仁直接取用、安裝到自己的 Claude Code。
+
+## 同仁安裝方式
+
+1. **需求：** 已安裝 [Claude Code](https://claude.com/claude-code)（CLI 或桌面 App）。
+2. **複製技能：** 把 `skills/` 底下想用的資料夾，整個複製進自己的 `~/.claude/skills/`（Windows 為
+   `C:\Users\<你>\.claude\skills\`，Mac/Linux 為 `~/.claude/skills/`）。建議至少連 `sp999` + `cheap123`
+   一起複製——`cheap123` 是 sp999 的 **REQUIRED SUB-SKILL**，缺了 sp999 跑不完整。其餘（`grilling`/
+   `to-tickets`/`swarm`/`RENEW1`/`spec-init`/`d182`/`engine-slots`/`sleep-sp999`/`PHASE`）依下表視需求取用。
+3. **重啟 / 重新整理 Claude Code**，讓它重新掃描 `~/.claude/skills/`。
+4. **觸發：** 在對話裡輸入 `sp999` / `999` / `/sp999` / `全自動` 即啟動。
+5. **選用前提（會自動降級，缺了不會卡住）：**
+   - Codex 複核（步驟 1.5）需要 `claude-codex-bridge` MCP 已連接且登入 ChatGPT 帳號；未連接時自動跳過
+     該步驟，不影響其餘流程。
+   - `spec-init` 的部分 hook 需要 Node.js（跑 `.mjs`/`.mts` 腳本）。
+6. **路徑假設：** 這批技能原本跑在個人機器的 `D:\CLAUDE\` 底下；內容已盡量去個人化，僅
+   `spec-init/template/reference-soul.md` 留了一個範例路徑（`{{PROJECT}}` 模板佔位，非寫死依賴）。
+   同仁安裝後若要接自己的 vault/腳手架，照各技能 SKILL.md 裡的路徑說明調整即可，不需要真的有
+   `D:\CLAUDE\` 這個資料夾。
 
 ## 內含技能（`skills/` 下，每個都是 `.claude/skills/<name>/` 的完整原樣複製）
 
