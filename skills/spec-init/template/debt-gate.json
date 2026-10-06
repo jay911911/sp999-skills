@@ -1,0 +1,8 @@
+{
+  "declared": "??",
+  "layers": [],
+  "forbidden_edges": [],
+  "entry": {},
+  "thresholds": { "py": { "ccn": 10, "file_loc": 400 }, "ts": { "ccn": 10, "file_loc": 400 } },
+  "allow": []
+}

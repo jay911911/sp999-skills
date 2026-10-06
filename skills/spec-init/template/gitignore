@@ -1,0 +1,27 @@
+# {{PROJECT}} .gitignore -- root-anchored where structural (Windows case-insensitive safe).
+# Rule: anchor project-structural dir ignores with a leading "/" so an unanchored name
+# (e.g. build/) cannot also swallow same-named source dirs elsewhere in the tree.
+
+# dependency / build output
+/node_modules/
+/dist/
+/build/
+/bin/
+/obj/
+
+# python envs / caches
+/.venv/
+/venv/
+__pycache__/
+*.pyc
+
+# LOOP transient run artifacts (GOLDEN-PATH + LOOP/config stay tracked)
+/LOOP/runs/
+
+# spec-init memory backups + OS junk
+*.bak
+.DS_Store
+Thumbs.db
+
+# Soul Engine per-vault path override (machine-level ~/.claude/soul.env is the SSOT)
+/.pm/soul.env
